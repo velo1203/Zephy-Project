@@ -1,5 +1,3 @@
-   Zhepy Documentation body { font-family: 'Arial', sans-serif; line-height: 1.6; padding: 50px; } h1, h2 { color: #333; } h2 { margin-top: 20px; } h3, h4 { color: #555; } pre { background-color: #dadada; padding: 10px; border-radius: 5px; } code { font-family: 'Courier New', monospace; } ul { margin-left: 20px; } footer { text-align: center; padding: 10px; margin-top: 20px; border-top: 1px solid #eaeaea; }
-
 ZephyWebServer - 데스크탑 애플리케이션을 위한 간단한 웹 서버
 =========================================
 
