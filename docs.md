@@ -3,6 +3,8 @@ Zephy - 웹 & 데스크톱앱을 만들수있는 파이썬 라이브러리
 
 ZephyWebServer는 데스크탑 애플리케이션 내에서 정적 웹 페이지를 제공하기 위해 설계된 가벼우면서도 간편한 웹 서버입니다. 이 라이브러리는 로컬 웹 서버와 웹뷰를 사용하여 웹 컨텐츠를 데스크탑 애플리케이션에 쉽게 통합하는 방법을 제공합니다. 이 문서는 ZephyDesktop ZephyWebServer의 설정과통합 방법, HTML ELEMENT, ZephyState, Script 사용 및 통합 방법을 안내합니다.
 
+<추가되지 않은 내용이 많습니다>
+
 * * *
 
 ZephyWebServer 클래스
