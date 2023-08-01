@@ -13,15 +13,55 @@ class Script:
         self.counter += 1
         return name
 
-    def add_event_listener(self, element_id, event, function_body):
+    def add_event(self, element_id, event, function_body):
         if callable(function_body):  # 함수인 경우 실행하고 반환 값을 가져옴
             function_body = function_body()
         element = f"document.getElementById('{element_id}')"
         self.script_content.append(f"{element}.addEventListener('{event}', function() {{{function_body}}});")
 
-    def get_element_by_id(self, element_id):
-        return f"document.getElementById('{element_id}')"
+    def hide_element(self, element_id,direct_add=True):
+        if isinstance(element_id, State):  # State 객체인 경우
+            element_id = element_id.get_name()  # 변수 이름 가져오기
+        else:
+            element_id = f"'{element_id}'"
+        element = f"document.getElementById({element_id})"
+        hide_code = f"{element}.style.display = 'None';"
+        if direct_add:
+            self.script_content.append(hide_code)
+        else:
+            return hide_code
 
+    def show_element(self,element_id, direct_add=True):
+        if isinstance(element_id, State):  # State 객체인 경우
+            element_id = element_id.get_name()  # 변수 이름 가져오기
+        else:
+            element_id = f"'{element_id}'"
+        element = f"document.getElementById({element_id})"
+        show_code = f"{element}.style.display = 'block';"
+        if direct_add:
+            self.script_content.append(show_code)
+        else:
+            return show_code
+
+    def toggle_visibility_element(self, element_id, direct_add=True):
+        if isinstance(element_id, State):  # State 객체인 경우
+            element_id = element_id.get_name()  # 변수 이름 가져오기
+        else:
+            element_id = f"'{element_id}'"
+        
+        element = f"document.getElementById({element_id})"
+        toggle_code = f"""
+            if ({element}.style.display === 'none' || {element}.style.display === '') {{
+                {element}.style.display = 'block';
+            }} else {{
+                {element}.style.display = 'none';
+            }}
+        """
+        
+        if direct_add:
+            self.script_content.append(toggle_code)
+        else:
+            return toggle_code
 
     def update_state(self, variable_name, value):
         # 변수 값을 업데이트하고 스크립트 내용에 반영
